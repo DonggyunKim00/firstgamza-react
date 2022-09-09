@@ -1,0 +1,23 @@
+.container {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blackboard {
+  width: 600px;
+  height: 200px;
+  background-color: #3f733f;
+  border: 1px solid #000;
+  border-bottom: none;
+}
+
+input {
+  width: 596px;
+  height: 20px;
+  border-radius: none;
+  text-align: center;
+  border: 1px solid #000;
+}
