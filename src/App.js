@@ -3,19 +3,34 @@ import styles from "./App.module.css";
 
 function App() {
   const [text, setText] = useState("");
-  const onKeyUp = (event) => {
-    if (event.keyCode === 13) {
-      // 엔터키가 눌렸을 때
-      setText(event.target.value);
+  const [board, setBoard] = useState([]);
+  const onSubmit = (event) => {
+    event.preventDefault();
+    if (text === "") {
+      return;
     }
+    setText("");
+    setBoard((currentArray) => [...currentArray, text]);
   };
+  const onChange = (event) => setText(event.target.value);
 
   return (
-    <div className={styles.outer}>
-      <div className={styles.container}>
-        <div className={styles.blackboard}>{text}</div>
-        <input type='text' placeholder='입력해주세요' onKeyUp={onKeyUp} />
-      </div>
+    <div>
+      <form onSubmit={onSubmit}>
+        <div className={styles.container}>
+          <div id={styles.noscroll} className={styles.blackboard}>
+            {board.map((text, idx) => (
+              <li key={idx}>{text}</li>
+            ))}
+          </div>
+          <input
+            onChange={onChange}
+            value={text || ""} // text에 undefiend가 들어갈수도 있기때문에 error방지
+            type='text'
+            placeholder='입력해주세요'
+          />
+        </div>
+      </form>
     </div>
   );
 }

@@ -12,6 +12,11 @@
   background-color: #3f733f;
   border: 1px solid #000;
   border-bottom: none;
+  overflow-y: scroll;
+}
+
+#noscroll::-webkit-scrollbar {
+  display: none;
 }
 
 input {
@@ -20,4 +25,10 @@ input {
   border-radius: none;
   text-align: center;
   border: 1px solid #000;
+}
+
+li {
+  padding: none;
+  margin: none;
+  list-style: none;
 }
